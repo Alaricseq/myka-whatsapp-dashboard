@@ -1,3 +1,4 @@
+import os
 from flask import Flask, render_template, request, redirect, url_for
 from backend import contacts_collection, logs_collection, twilio_client, twilio_whatsapp_number
 
@@ -47,5 +48,7 @@ def logs():
     logs = list(logs_collection.find({}, {"_id": 0}))
     return render_template("logs.html", logs=logs)
 
-if __name__ == '__main__':
-    app.run(port=5001, debug=True)
+if __name__ == "__main__":
+    # Render sets PORT in its environment; default to 10000 if missing
+    port = int(os.environ.get("PORT", 10000))
+    app.run(host="0.0.0.0", port=port, debug=False)
