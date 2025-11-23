@@ -1,0 +1,37 @@
+# Python bytecode and cache
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Virtual Environment folders
+.venv/
+venv/
+ENV/
+env/
+# For custom venv folder names, add them here.
+
+# IDE and editor settings
+.vscode/
+.idea/
+
+# System/OS junk files
+.DS_Store
+Thumbs.db
+
+# Log files
+*.log
+
+# Environment variables and secrets
+.env
+*.env
+
+# Python distribution/package metadata
+build/
+dist/
+*.egg-info/
+
+# Jupyter Notebook checkpoints (if any)
+.ipynb_checkpoints/
+
+

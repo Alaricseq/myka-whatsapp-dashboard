@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2>Contacts</h2>
+<ul>
+{% for contact in contacts %}
+  <li>{{ contact.name }}: {{ contact.number }}</li>
+{% endfor %}
+</ul>
+<a href="/add_contact">Add Contact</a>
+<a href="/send_message">Send WhatsApp Message</a>
+<a href="/logs">View Logs</a>
+{% endblock %}

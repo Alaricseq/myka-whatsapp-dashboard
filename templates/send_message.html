@@ -1,0 +1,136 @@
+{% extends "base.html" %}
+{% block content %}
+<div style="
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 80vh;
+  padding: 20px;
+">
+  <div style="
+    background: #fff;
+    padding: 48px 40px;
+    border-radius: 16px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+    max-width: 520px;
+    width: 100%;
+  ">
+    <h2 style="
+      text-align: center;
+      font-size: 32px;
+      font-weight: 700;
+      color: #2d2d2d;
+      margin-bottom: 32px;
+      letter-spacing: -0.5px;
+    ">Send WhatsApp Message</h2>
+    
+    <form method="post" style="width:100%;">
+      
+      <label style="
+        display: block;
+        font-size: 13px;
+        font-weight: 600;
+        color: #4a4a4a;
+        margin-bottom: 6px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      ">Phone Number *</label>
+      <input name="number" required placeholder="Enter WhatsApp Number" style="
+        width: 100%;
+        padding: 14px 16px;
+        margin-bottom: 20px;
+        border: 1px solid #e0e0e0;
+        border-radius: 8px;
+        font-size: 15px;
+        background: #fafafa;
+        transition: all 0.2s;
+      " onfocus="this.style.background='#fff'; this.style.borderColor='#999';" onblur="this.style.background='#fafafa'; this.style.borderColor='#e0e0e0';">
+
+      <label style="
+        display: block;
+        font-size: 13px;
+        font-weight: 600;
+        color: #4a4a4a;
+        margin-bottom: 6px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      ">Message *</label>
+      <textarea name="body" required placeholder="Your message here..." rows="3" style="
+        width: 100%;
+        padding: 14px 16px;
+        margin-bottom: 20px;
+        border: 1px solid #e0e0e0;
+        border-radius: 8px;
+        font-size: 15px;
+        background: #fafafa;
+        font-family: inherit;
+        resize: vertical;
+        transition: all 0.2s;
+      " onfocus="this.style.background='#fff'; this.style.borderColor='#999';" onblur="this.style.background='#fafafa'; this.style.borderColor='#e0e0e0';"></textarea>
+
+      <label style="
+        display: block;
+        font-size: 13px;
+        font-weight: 600;
+        color: #4a4a4a;
+        margin-bottom: 6px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      ">Image URL (Optional)</label>
+      <input name="image_url" id="image_url" placeholder="Paste image URL" style="
+        width: 100%;
+        padding: 14px 16px;
+        margin-bottom: 16px;
+        border: 1px solid #e0e0e0;
+        border-radius: 8px;
+        font-size: 15px;
+        background: #fafafa;
+        transition: all 0.2s;
+      " oninput="showPreview()" autocomplete="off" onfocus="this.style.background='#fff'; this.style.borderColor='#999';" onblur="this.style.background='#fafafa'; this.style.borderColor='#e0e0e0';">
+
+      <div id="preview" style="
+        margin-bottom: 24px;
+        text-align: center;
+        min-height: 20px;
+      "></div>
+
+      <button type="submit" style="
+        width: 100%;
+        padding: 16px;
+        background: #2d2d2d;
+        color: #fff;
+        border: none;
+        border-radius: 8px;
+        font-size: 16px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: background 0.2s;
+        letter-spacing: 0.3px;
+      " onmouseover="this.style.background='#1a1a1a'" onmouseout="this.style.background='#2d2d2d'">
+        Send →
+      </button>
+    </form>
+  </div>
+  
+  <a href="/" style="
+    margin-top: 24px;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+  " onmouseover="this.style.color='#2d2d2d'" onmouseout="this.style.color='#666'">← Back to Home</a>
+</div>
+
+<script>
+function showPreview() {
+  var url = document.getElementById('image_url').value;
+  var previewDiv = document.getElementById('preview');
+  if(url.length > 5) {
+    previewDiv.innerHTML = "<img src='" + url + "' style='max-width:100%; max-height:200px; border-radius:10px; box-shadow:0 2px 12px rgba(0,0,0,0.1); margin-top:8px;' onerror=\"this.style.display='none'\" />";
+  } else {
+    previewDiv.innerHTML = '';
+  }
+}
+</script>
+{% endblock %}
