@@ -31,7 +31,7 @@ contacts = list(contacts_collection.find({}, {"_id": 0}))
 print("All contacts:", contacts)
 
 # Send a WhatsApp message
-recipient_number = "+919XXXXXXXXXX"  # Use a joined/verified WhatsApp number
+recipient_number = "+919742320225"  # Use a joined/verified WhatsApp number
 message_body = "Hey! This is a test. (Sent from Twilio trial account)"
 message = twilio_client.messages.create(
     body=message_body,
